@@ -43,7 +43,7 @@ insert into Attraction values ('Lake Louise', 1, 'Annual');
 insert into Attraction values ('Engelmann Spruce', 1, 'Annual');
 insert into Attraction values ('Subalpine Fir', 1, 'Annual');
 insert into Attraction values ('American Marten', 1, 'Annual');
-insert into Attraction values ('Vision Center', 1, 'Annual');
+insert into Attraction values ('Visitor Center', 1, 'Annual');
 insert into Attraction values ('Balu Pass', 1, 'Annual');
 insert into Attraction values ('Mount Dawson', 1, 'Annual');
 insert into Attraction values ('Illecillewaet Glacier', 0, 'Winter');
@@ -73,30 +73,30 @@ Insert into Books_Reservation_ID values ('03', 'camp2','2019-11-23','def@gmail.c
 Insert into Books_Reservation_ID values ('04', 'camp1','2019-12-21', 'ghi@gmail.com',4);
 Insert into Books_Reservation_ID values ('05','camp1', '2020-01-31','def@gmail.com', 1);
 
-Insert into Cancels_Reservation values (01, 'm1');
-Insert into Cancels_Reservation values (02, 'm1');
-Insert into Cancels_Reservation values (03, 'm2');
-Insert into Cancels_Reservation values (04, 'm1');
-Insert into Cancels_Reservation values (05, 'm3');
+Insert into Cancels_Reservation values ('01', 'm1');
+Insert into Cancels_Reservation values ('02', 'm1');
+Insert into Cancels_Reservation values ('03', 'm2');
+Insert into Cancels_Reservation values ('04', 'm1');
+Insert into Cancels_Reservation values ('05', 'm3');
 
-Insert into Request_Cancel values (01, 'abc@gmail.com' , 'm1');
-Insert into Request_Cancel values (02, 'abc@gmail.com' , 'm1');
-Insert into Request_Cancel values (03, 'def@gmail.com' , 'm2');
-Insert into Request_Cancel values (04, 'ghi@gmail.com' , 'm1');
-Insert into Request_Cancel values (05, 'def@gmail.com' , 'm3');
+Insert into Request_Cancel values ('01','m1','abc@gmail.com');
+Insert into Request_Cancel values ('02','m1','hello@gmail.com');
+Insert into Request_Cancel values ('03','m2','def@gmail.com');
+Insert into Request_Cancel values ('04','m1','ghi@gmail.com');
+Insert into Request_Cancel values ('05','m3','bye@gmail.com');
 
 
 insert into NP_Rating_Stars values ('abc@gmail.com', 'Glacier', 5, 'Great park!');
-insert into NP_Rating_Stars values ('def@gmail.com', 'Terra Nova', 4, NULL);
+insert into NP_Rating_Stars values ('def@gmail.com', 'Terra Nova', 4, '');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Terra Nova', 3, 'A bit cold...');
-insert into NP_Rating_Stars values ('ghi@gmail.com', 'Banff', 4.5, 'NULL');
-insert into NP_Rating_Stars values ('hello@gmail.com', 'Point Pelee', 4.5, NULL);
+insert into NP_Rating_Stars values ('ghi@gmail.com', 'Banff', 4.5, '');
+insert into NP_Rating_Stars values ('hello@gmail.com', 'Point Pelee', 4.5, '');
 
-insert into NP_Rating_ID values ('r1', 'abc@gmail.com' 'Glacier');
-insert into NP_Rating_ID values ('r2', 'def@gmail.com' 'Terra Nova');
-insert into NP_Rating_ID values ('r3', 'abc@gmail.com' 'Terra Nova');
-insert into NP_Rating_ID values ('r4', 'ghi@gmail.com' 'Banff');
-insert into NP_Rating_ID values ('r5', 'hello@gmail.com' 'Point Pelee');
+insert into NP_Rating_ID values ('r1', 'abc@gmail.com', 'Glacier');
+insert into NP_Rating_ID values ('r2', 'def@gmail.com', 'Terra Nova');
+insert into NP_Rating_ID values ('r3', 'abc@gmail.com', 'Terra Nova');
+insert into NP_Rating_ID values ('r4', 'ghi@gmail.com' ,'Banff');
+insert into NP_Rating_ID values ('r5', 'hello@gmail.com', 'Point Pelee');
 
 
 
@@ -135,7 +135,7 @@ Insert into Activity_Has_Keyword values ('Fun', 'zip1');
 Insert into Activity_Has_Keyword values ('Camping', 'camp1');
 Insert into Activity_Has_Keyword values ('Fishing', 'annualfish1');
 Insert into Activity_Has_Keyword values ('Fishing', 'dailyfish1');
-Insert into Activity_Has_Keyword values ('Camping', 'camp1');
+Insert into Activity_Has_Keyword values ('Camping', 'camp2');
 
 
 Insert into Popularity_Record values ('zip1', '2018-11-01', '2018-11-30', 672);

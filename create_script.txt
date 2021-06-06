@@ -3,7 +3,7 @@
 CREATE TABLE National_Park
   	(name char(30) PRIMARY KEY,
 	address char(50) UNIQUE NOT NULL,
-	phone_number int UNIQUE NOT NULL);
+	phone_number Bigint UNIQUE NOT NULL);
 
 
 CREATE TABLE Management
@@ -16,16 +16,16 @@ CREATE TABLE Keyword
 CREATE TABLE Visitor
 	(email char(30) PRIMARY KEY,
 	name char(30) NOT NULL,
-	phone_num int UNIQUE NOT NULL);
+	phone_num Bigint UNIQUE NOT NULL);
 
 CREATE TABLE Attraction
 	(attraction_name char(30) PRIMARY KEY,
-	is_active int NOT NULL,
+	is_active Bigint NOT NULL,
 	season char(30) NOT NULL);
 
 CREATE TABLE Scenery_Form_Manmade
 	(form char(30) PRIMARY KEY,
-	manmade int NOT NULL);
+	manmade Bigint NOT NULL);
 
 CREATE TABLE NP_Has_Keyword
 (word char(30),
@@ -40,7 +40,7 @@ ON UPDATE CASCADE);
 
 CREATE TABLE Activity
 	(id char(30) PRIMARY KEY,
-	capacity int NOT NULL,
+	capacity Bigint NOT NULL,
 	activity_name char(30) NOT NULL,
 	price real NOT NULL,
 np_name char(30) NOT NULL,
@@ -50,7 +50,7 @@ ON UPDATE CASCADE);
 
 CREATE TABLE Books_Activity_Amount
 	(activity_id char(30),
-	num_people int,
+	num_people Bigint,
 	amount_paid real NOT NULL,
 	PRIMARY KEY(activity_id, num_people),
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
@@ -62,7 +62,7 @@ CREATE TABLE Books_Reservation_ID
 activity_id char(30) NOT NULL,
 	date date NOT NULL ,
 	visitor_email char(30) NOT NULL,
-	num_people int NOT NULL,
+	num_people Bigint NOT NULL,
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
 ON DELETE NO ACTION
 ON UPDATE NO ACTION,
@@ -188,7 +188,7 @@ CREATE TABLE Popularity_Record
 	(activity_id char(30),
 	start_date date,
 	end_date date,
-	num_visitors int NOT NULL,
+	num_visitors Bigint NOT NULL,
 	PRIMARY KEY(activity_id, start_date, end_date),
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
 		ON DELETE CASCADE
