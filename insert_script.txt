@@ -1,13 +1,8 @@
-insert into National_park values ('Banff','224 Banff Avenue Banff AB', 4037641550);
-
-insert into National_park values ('Glacier','9520 Trans-Canada Highway,
-Rogers Pass, BC',2508377500);
-
-insert into National_park values ('Rouge National Urban Park','1749 Meadowvale Road, Scarborough, ON',4162642020);
-
-insert into National_park values ('Point Pelee','1118 Point Pelee Dr, Leamington, ON ',5193222365);
-
-insert into National_park values ('Terra Nova ','Trans-Canada Highway, Glovertown, NL',7095332801);
+insert into National_Park values ('Banff','224 Banff Avenue Banff AB', 4037641550);
+insert into National_Park values ('Glacier','9520 Trans-Canada Highway,Rogers Pass, BC',2508377500);
+insert into National_Park values ('Rouge National Urban Park','1749 Meadowvale Road, Scarborough, ON',4162642020);
+insert into National_Park values ('Point Pelee','1118 Point Pelee Dr, Leamington, ON ',5193222365);
+insert into National_Park values ('Terra Nova ','Trans-Canada Highway, Glovertown, NL',7095332801);
 
 insert into Activity values ('zip1', 35, 'Ziplining', 84.00, 'Banff');
 insert into Activity values ('camp1', 28, 'Frontcountry Camping', 39.04, 'Terra Nova');
@@ -48,11 +43,11 @@ insert into Attraction values ('Balu Pass', 1, 'Annual');
 insert into Attraction values ('Mount Dawson', 1, 'Annual');
 insert into Attraction values ('Illecillewaet Glacier', 0, 'Winter');
 
-Insert into Scenery_form_manmade values ('Lake', 0);
-Insert into Scenery_form_manmade values ('Building', 1);
-Insert into Scenery_form_manmade values ('Trail', 1);
-Insert into Scenery_form_manmade values ('Mountain', 0);
-Insert into Scenery_form_manmade values ('Glacier', 1);
+Insert into Scenery_Form_Manmade values ('Lake', 0);
+Insert into Scenery_Form_Manmade values ('Building', 1);
+Insert into Scenery_Form_Manmade values ('Trail', 1);
+Insert into Scenery_Form_Manmade values ('Mountain', 0);
+Insert into Scenery_Form_Manmade values ('Glacier', 1);
 
 Insert into NP_Has_Keyword values ('Mountains', 'Banff');
 Insert into NP_Has_Keyword values ('Cold', 'Glacier');
@@ -143,16 +138,3 @@ Insert into Popularity_Record values ('zip1', '2018-12-01', '2018-12-31', 390);
 Insert into Popularity_Record values ('camp2', '2019-05-05', '2019-05-11', 148);
 Insert into Popularity_Record values ('camp2', '2019-05-12', '2019-05-18', 97);
 Insert into Popularity_Record values ('camp2', '2019-05-19', '2019-05-25', 131);
-
-
-
-
-
-
-
-
-
-
-
-
-
