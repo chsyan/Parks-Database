@@ -86,7 +86,7 @@ CREATE TABLE Cancels_Reservation
 		ON UPDATE CASCADE);
 
 CREATE TABLE Request_Cancel
-	(reservaton_id char(30) NOT NULL,
+	(reservation_id char(30) NOT NULL,
 	management_id char(30),
 	visitor_email char(30),
 	PRIMARY KEY(visitor_email, management_id),
