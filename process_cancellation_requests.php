@@ -2,6 +2,7 @@
 include 'nav-bkg.php';
 ?>
 <h2> Processing Reservation Cancellation Requests</h2>
+<br>
 <div class="border border-secondary d-flex justify-content-center align-items-center p-5" >
 <?php
 
@@ -27,7 +28,13 @@ if ($result->num_rows > 0) {
   }
   echo "</table>";
 } else {
-  echo "0 results";
+  echo "<br>";
+  echo "<br><br><br>";
+  echo "<br><br><br>";
+  echo "No pending cancellation requests.";
+  echo "<br>";
+  echo "<br><br><br>";
+  echo "<br><br><br>";
 }
 
 
