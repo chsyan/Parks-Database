@@ -35,7 +35,8 @@ if(mysqli_num_rows($result)>0) {
     echo "<tr><td class='border-class'>".$row["id"]."</td>";
     echo "<td class='border-class'>".$row["activity_name"]."</td>";
     echo "<td class='border-class'>".$row["capacity"]."</td>";
-    echo "<td class='border-class'>".$row["total_price"]."</td>";
+    $price = number_format((float) $row["total_price"], 2,'.', '');
+    echo "<td class='border-class'>$price</td>";
     echo "<td class='border-class'>".$row["np_name"]."</td>";
     echo "<td class='border-class'>".$date."</td>";
     

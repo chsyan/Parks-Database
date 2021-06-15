@@ -91,7 +91,8 @@ echo "</fieldset>";
       echo "<fieldset><h3>Park Reviews!</h3>";
 
       $avg_rating = (mysqli_fetch_row($avg_result))[0];
-      echo "<h4>$park average rating: $avg_rating stars</h4>";
+      $avg_rat_2_dp = number_format((float)$avg_rating, 2, '.','');
+      echo "<h4>$park average rating: $avg_rat_2_dp stars</h4>";
 
       while ($row = $result->fetch_assoc()){
         echo "<hr class=border border-secondary />";
