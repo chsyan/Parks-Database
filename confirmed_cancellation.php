@@ -9,7 +9,7 @@ $_SESSION['e1'] = $_SESSION['email'];
 $email = $_POST["visitor_email"];
 $resr_id =  $_POST["id"];
 $mang_id = $_SESSION['user_id'];
-
+$activity_id="";
 
 
 

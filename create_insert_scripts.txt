@@ -1,5 +1,3 @@
-
-
 CREATE TABLE National_Park
   	(name char(30) PRIMARY KEY,
 	address char(50) UNIQUE NOT NULL,
@@ -78,7 +76,7 @@ CREATE TABLE Cancels_Reservation
 	management_id char(30),
 	PRIMARY KEY(reservation_id, management_id),
 	FOREIGN KEY(reservation_id) REFERENCES Books_Reservation_ID(id)
-		ON DELETE NO ACTION
+		ON DELETE CASCADE
 		ON UPDATE CASCADE,
 	FOREIGN KEY(management_id) REFERENCES Management(id)
 		ON DELETE NO ACTION
