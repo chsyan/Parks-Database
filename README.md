@@ -7,4 +7,4 @@ On the visitors’ side, we included functionality such as requesting cancellati
 Park management is in charge of the updates/insertion/deletion of any data within the park database. They can also process the cancellations sent in by the visitors, as well as collect important data on the popularity of various activities within our parks. 
 
 # ER Diagram: 
-![](UML_Design_Diagram.png?raw=true)
+![](ERD.png?raw=true)
