@@ -1,7 +1,11 @@
 <?php
+include 'nav-bkg.php';
 include 'connect.php';
+echo '<div class="border border-secondary d-flex justify-content-center align-items-center h-75" >';
+session_start();
+$_SESSION['s1'] = $_SESSION['id_val'];
 
-$np_name = $_POST['park_name'];
+$np_name = $_SESSION['id_val'];
 $stars = $_POST['stars'];
 $visitor_email = $_POST['email'];
 $rating_id = uniqid();
@@ -12,8 +16,13 @@ $sql2 = "INSERT INTO np_rating_id VALUES ('$rating_id', '$visitor_email','$np_na
 
 $conn = OpenCon();
 if ($conn->query($sql1) && $conn->query($sql2) === TRUE) {
-  echo "Success";
+  echo "Review Submitted! <br> Redirecting to ". $_SESSION['id_val']. " National Park...";
+  header('Refresh: 5; URL=activity-search-np.php');
+  die();
 } else {
-  echo "not success".$conn->error;
+  echo "Already Reviewed";
+  header('Refresh: 5; URL=activity-search-np.php');
+  die();
 }
+
 ?>

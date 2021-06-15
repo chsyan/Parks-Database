@@ -9,12 +9,19 @@ insert into Activity values ('camp1', 28, 'Frontcountry Camping', 39.04, 'Terra 
 insert into Activity values ('camp2', 28, 'Group Camping', 5.93, 'Terra Nova');
 insert into Activity values ('dailyfish1', 20, 'Daily Fishing', 9.80, 'Glacier');
 insert into Activity values ('annualfish1', 150, 'Annual Fishing', 34.30, 'Glacier');
+insert into Activity values ('zip2', 20, 'Ziplining', 75.00, 'Rouge National Urban Park');
+insert into Activity values ('camp3', 45, 'Frontcountry Camping', 33.65, 'Point Pelee');
+insert into Activity values ('dailyfish2', 15, 'Daily Fishing', 11.10, 'Rouge National Urban Park');
+insert into Activity values ('annualfish2', 67, 'Annual Fishing', 110.00, 'Point Pelee');
+insert into Activity values ('swim1', 33, 'Swimming' , 29.80, 'Banff');
+insert into Activity values ('horse_ride', 3, 'Horse Riding', 39.00, 'Terra Nova');
+insert into Activity values ('rl1', 40, 'Roller coaster', 32.50, 'Rouge National Urban Park');
 
-Insert into Management values ('m1', 'Susan Smith', 'abcd1234@');
-Insert into Management values ('m2', 'Karen Kelsey', '1a2b3c4d#');
-Insert into Management values ('m3', 'Alex Adams', 'abcd1234@');
-Insert into Management values ('m4', 'Boring Bob', 'abcd1234@');
-Insert into Management values ('m5', 'Susan Sammy', 'abcd1234@');
+Insert into Management values ('m1', 'Susan Smith');
+Insert into Management values ('m2', 'Karen Kelsey');
+Insert into Management values ('m3', 'Alex Adams');
+Insert into Management values ('m4', 'Boring Bob');
+Insert into Management values ('m5', 'Susan Sammy');
 
 Insert into Keyword values ('Camping');
 Insert into Keyword values ('Fishing');
@@ -25,12 +32,15 @@ Insert into Keyword values ('Fun');
 Insert into Keyword values ('Tree');
 Insert into Keyword values ('Mountains');
 Insert into Keyword values ('Cold');
+Insert into Keyword values ('Swimming');
+Insert into Keyword values ('Horse Riding');
 
-insert into Visitor values ('abc@gmail.com' , 'alex', 1234567890, 'abcd1234@');
-insert into Visitor values ('def@gmail.com' , 'don', 0987654321, 'abcd1234@');
-insert into Visitor values ('ghi@gmail.com' , 'wanda',7787787788, 'abcd1234@');
-insert into Visitor values ('hello@gmail.com' , 'helen', 6046046004, 'abcd1234@');
-insert into Visitor values ('bye@gmail.com' , 'brandon', 6046046644, 'abcd1234@');
+
+insert into Visitor values ('abc@gmail.com' , 'alex', 1234567890);
+insert into Visitor values ('def@gmail.com' , 'don', 0987654321);
+insert into Visitor values ('ghi@gmail.com' , 'wanda',7787787788);
+insert into Visitor values ('hello@gmail.com' , 'helen', 6046046004);
+insert into Visitor values ('bye@gmail.com' , 'brandon', 6046046644);
 
 Insert into Attraction values ('Cougar', 1, 'Annual');
 insert into Attraction values ('Common Butterwort', 0, 'Summer');
@@ -55,11 +65,12 @@ Insert into NP_Has_Keyword values ('Lake', 'Banff');
 Insert into NP_Has_Keyword values ('Hiking', 'Banff');
 Insert into NP_Has_Keyword values ('Hiking', 'Terra Nova');
 
-Insert into Books_Activity_Amount values ('zip1', 3, 252.00, 'abc@gmail.com');
-Insert into Books_Activity_Amount values ('dailyfish1', 5, 49.00, 'abc@gmail.com');
-Insert into Books_Activity_Amount values ('camp1', 1, 39.04, 'def@gmail.com');
-Insert into Books_Activity_Amount values ('camp1', 4, 156.16, 'ghi@gmail.com');
-Insert into Books_Activity_Amount values ('camp2', 6, 35.58, 'def@gmail.com');
+
+Insert into Books_Activity_Amount values ('zip1', 3, 252.00);
+Insert into Books_Activity_Amount values ('dailyfish1', 5, 49.00);
+Insert into Books_Activity_Amount values ('camp1', 1, 39.04);
+Insert into Books_Activity_Amount values ('camp1', 4, 156.16);
+Insert into Books_Activity_Amount values ('camp2', 6, 35.58);
 
 Insert into Books_Reservation_ID values ('01','zip1','2018-01-01', 'abc@gmail.com',3);
 Insert into Books_Reservation_ID values ('02', 'dailyfish1','2019-11-27', 'abc@gmail.com',5);
@@ -85,13 +96,16 @@ insert into NP_Rating_Stars values ('def@gmail.com', 'Terra Nova', 4, '');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Terra Nova', 3, 'A bit cold...');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Banff', 4.5, '');
 insert into NP_Rating_Stars values ('hello@gmail.com', 'Point Pelee', 4.5, '');
+insert into NP_Rating_Stars values ('hello@gmail.com', 'Rouge National Urban Park', 3.0, 'Less on Fun side!');
+insert into NP_Rating_Stars values ('abc@gmail.com', 'Banff', 5.0, 'Amazing Park in scenic setting!');
 
 insert into NP_Rating_ID values ('r1', 'abc@gmail.com', 'Glacier');
 insert into NP_Rating_ID values ('r2', 'def@gmail.com', 'Terra Nova');
 insert into NP_Rating_ID values ('r3', 'abc@gmail.com', 'Terra Nova');
 insert into NP_Rating_ID values ('r4', 'ghi@gmail.com' ,'Banff');
 insert into NP_Rating_ID values ('r5', 'hello@gmail.com', 'Point Pelee');
-
+insert into NP_Rating_ID values ('r6', 'hello@gmail.com', 'Rouge National Urban Park');
+insert into NP_Rating_ID values ('r7', 'ghi@gmail.com' ,'Point Pelee');
 
 
 
@@ -130,7 +144,13 @@ Insert into Activity_Has_Keyword values ('Camping', 'camp1');
 Insert into Activity_Has_Keyword values ('Fishing', 'annualfish1');
 Insert into Activity_Has_Keyword values ('Fishing', 'dailyfish1');
 Insert into Activity_Has_Keyword values ('Camping', 'camp2');
-
+insert into Activity_Has_Keyword values ('Camping', 'camp3');
+insert into Activity_Has_Keyword values ('Swimming', 'swim1');
+insert into Activity_Has_Keyword values ('Fun', 'rl1');
+insert into Activity_Has_Keyword values ('Fishing', 'annualfish2');
+insert into Activity_Has_Keyword values ('Fishing', 'dailyfish2');
+insert into Activity_Has_Keyword values ('Horse Riding', 'horse_ride');
+Insert into Activity_Has_Keyword values ('Fun', 'zip2');
 
 Insert into Popularity_Record values ('zip1', '2018-11-01', '2018-11-30', 672);
 Insert into Popularity_Record values ('zip1', '2018-12-01', '2018-12-31', 390);

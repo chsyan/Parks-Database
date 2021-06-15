@@ -1,12 +1,14 @@
+
+
 CREATE TABLE National_Park
   	(name char(30) PRIMARY KEY,
 	address char(50) UNIQUE NOT NULL,
 	phone_number Bigint UNIQUE NOT NULL);
 
+
 CREATE TABLE Management
 	(id char(30) PRIMARY KEY,
-	name char(30) NOT NULL,
-    password varchar(20) NOT NULL);
+	name char(30) NOT NULL);
 
 CREATE TABLE Keyword
 	(word char(30) PRIMARY KEY);
@@ -14,8 +16,7 @@ CREATE TABLE Keyword
 CREATE TABLE Visitor
 	(email char(30) PRIMARY KEY,
 	name char(30) NOT NULL,
-	phone_num Bigint UNIQUE NOT NULL,
-    password varchar(20) NOT NULL);
+	phone_num Bigint UNIQUE NOT NULL);
 
 CREATE TABLE Attraction
 	(attraction_name char(30) PRIMARY KEY,
@@ -31,34 +32,30 @@ CREATE TABLE NP_Has_Keyword
 	np_name char(30),
 	PRIMARY KEY(word, np_name),
 	FOREIGN KEY(np_name) REFERENCES National_Park(name)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE,
-    FOREIGN KEY(word) REFERENCES Keyword(word)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE);
+ON DELETE CASCADE
+ON UPDATE CASCADE,
+FOREIGN KEY(word) REFERENCES Keyword(word)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
 
 CREATE TABLE Activity
 	(id char(30) PRIMARY KEY,
 	capacity Bigint NOT NULL,
 	activity_name char(30) NOT NULL,
 	price real NOT NULL,
-    np_name char(30) NOT NULL,
-    FOREIGN KEY (np_name) REFERENCES National_Park(name)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE);
+np_name char(30) NOT NULL,
+FOREIGN KEY (np_name) REFERENCES National_Park(name)
+ON DELETE CASCADE
+ON UPDATE CASCADE);
 
 CREATE TABLE Books_Activity_Amount
 	(activity_id char(30),
-	num_people Bigint NOT NULL,
+	num_people Bigint,
 	amount_paid real NOT NULL,
-    visitor_email char(30),
-	PRIMARY KEY(activity_id, visitor_email),
+	PRIMARY KEY(activity_id, num_people),
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
-        ON DELETE NO ACTION
-        ON UPDATE NO ACTION,
-    FOREIGN KEY(visitor_email) REFERENCES Visitor(email)
-        ON DELETE NO ACTION
-        ON UPDATE CASCADE);
+ON DELETE NO ACTION
+ON UPDATE NO ACTION);
 
 CREATE TABLE Books_Reservation_ID
 	(id char(30) PRIMARY KEY,
@@ -86,7 +83,7 @@ CREATE TABLE Cancels_Reservation
 		ON UPDATE CASCADE);
 
 CREATE TABLE Request_Cancel
-	(reservation_id char(30) NOT NULL,
+	(reservaton_id char(30) NOT NULL,
 	management_id char(30),
 	visitor_email char(30),
 	PRIMARY KEY(visitor_email, management_id),
@@ -96,6 +93,8 @@ CREATE TABLE Request_Cancel
 	FOREIGN KEY(management_id) REFERENCES Management(id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE);
+
+
 
 CREATE TABLE NP_Rating_Stars
 	(visitor_email char(30),
@@ -121,6 +120,10 @@ FOREIGN KEY (visitor_email) REFERENCES Visitor(email)
 ON DELETE NO ACTION
 ON UPDATE CASCADE);
 
+
+
+
+
 CREATE TABLE NP_Contains_Attraction
              (attraction_name char(30),
              np_name               char(30),
@@ -132,6 +135,8 @@ CREATE TABLE NP_Contains_Attraction
             FOREIGN KEY (np_name) REFERENCES National_Park(name)
                           ON DELETE CASCADE
                           ON UPDATE CASCADE);
+
+
 
 CREATE TABLE Wildlife
 	(attraction_name char(30) PRIMARY KEY,
@@ -151,6 +156,8 @@ FOREIGN KEY(form) REFERENCES Scenery_Form_Manmade(form)
 ON DELETE NO ACTION
 ON UPDATE CASCADE);
 
+
+
 CREATE TABLE Attraction_Has_Keyword
 	(word char(30),
 	attraction_name char(30),
@@ -161,6 +168,10 @@ ON UPDATE CASCADE,
 FOREIGN KEY(word) REFERENCES Keyword(word)
 ON DELETE CASCADE
 ON UPDATE CASCADE);
+
+
+
+
 
 CREATE TABLE Activity_Has_Keyword
 	(word char(30),
@@ -182,3 +193,11 @@ CREATE TABLE Popularity_Record
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE);
+	
+
+
+
+
+
+
+

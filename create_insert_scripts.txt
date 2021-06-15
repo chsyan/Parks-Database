@@ -8,7 +8,8 @@ CREATE TABLE National_Park
 
 CREATE TABLE Management
 	(id char(30) PRIMARY KEY,
-	name char(30) NOT NULL);
+	name char(30) NOT NULL,
+    password varchar(20) NOT NULL);
 
 CREATE TABLE Keyword
 	(word char(30) PRIMARY KEY);
@@ -16,7 +17,8 @@ CREATE TABLE Keyword
 CREATE TABLE Visitor
 	(email char(30) PRIMARY KEY,
 	name char(30) NOT NULL,
-	phone_num Bigint UNIQUE NOT NULL);
+	phone_num Bigint UNIQUE NOT NULL,
+    password varchar(20) NOT NULL);
 
 CREATE TABLE Attraction
 	(attraction_name char(30) PRIMARY KEY,
@@ -32,21 +34,21 @@ CREATE TABLE NP_Has_Keyword
 	np_name char(30),
 	PRIMARY KEY(word, np_name),
 	FOREIGN KEY(np_name) REFERENCES National_Park(name)
-ON DELETE CASCADE
-ON UPDATE CASCADE,
-FOREIGN KEY(word) REFERENCES Keyword(word)
-ON DELETE CASCADE
-ON UPDATE CASCADE);
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(word) REFERENCES Keyword(word)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE);
 
 CREATE TABLE Activity
 	(id char(30) PRIMARY KEY,
 	capacity Bigint NOT NULL,
 	activity_name char(30) NOT NULL,
 	price real NOT NULL,
-np_name char(30) NOT NULL,
-FOREIGN KEY (np_name) REFERENCES National_Park(name)
-ON DELETE CASCADE
-ON UPDATE CASCADE);
+    np_name char(30) NOT NULL,
+    FOREIGN KEY (np_name) REFERENCES National_Park(name)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE);
 
 CREATE TABLE Books_Activity_Amount
 	(activity_id char(30),
@@ -54,21 +56,21 @@ CREATE TABLE Books_Activity_Amount
 	amount_paid real NOT NULL,
 	PRIMARY KEY(activity_id, num_people),
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION);
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION);
 
 CREATE TABLE Books_Reservation_ID
 	(id char(30) PRIMARY KEY,
-activity_id char(30) NOT NULL,
+    activity_id char(30) NOT NULL,
 	date date NOT NULL ,
 	visitor_email char(30) NOT NULL,
 	num_people Bigint NOT NULL,
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
-ON DELETE NO ACTION
-ON UPDATE NO ACTION,
-FOREIGN KEY(visitor_email) REFERENCES Visitor(email)
-ON DELETE NO ACTION
-ON UPDATE CASCADE);
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION,
+    FOREIGN KEY(visitor_email) REFERENCES Visitor(email)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE);
 
 
 CREATE TABLE Cancels_Reservation
@@ -94,49 +96,41 @@ CREATE TABLE Request_Cancel
 		ON DELETE CASCADE
 		ON UPDATE CASCADE);
 
-
-
 CREATE TABLE NP_Rating_Stars
 	(visitor_email char(30),
-              np_name char(30),
-              stars real NOT NULL,
-              comment char(60),
-              PRIMARY KEY(visitor_email, np_name),
-              FOREIGN KEY (visitor_email) REFERENCES Visitor(email)
-                          ON DELETE NO ACTION
-                          ON UPDATE CASCADE,
-            FOREIGN KEY (np_name) REFERENCES National_Park(name)
-                         ON DELETE NO ACTION
-                         ON UPDATE CASCADE);
+    np_name char(30),
+    stars real NOT NULL,
+    comment char(60),
+    PRIMARY KEY(visitor_email, np_name),
+    FOREIGN KEY (visitor_email) REFERENCES Visitor(email)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE,
+    FOREIGN KEY (np_name) REFERENCES National_Park(name)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE);
 
 CREATE TABLE NP_Rating_ID
 	(rating_ID char(30) PRIMARY KEY,
-visitor_email char(30) NOT NULL ,
-np_name char(30) NOT NULL,
-FOREIGN KEY (np_name) REFERENCES National_Park(name)
-ON DELETE CASCADE
-ON UPDATE CASCADE,
-FOREIGN KEY (visitor_email) REFERENCES Visitor(email)
-ON DELETE NO ACTION
-ON UPDATE CASCADE);
-
-
-
-
+    visitor_email char(30) NOT NULL ,
+    np_name char(30) NOT NULL,
+    FOREIGN KEY (np_name) REFERENCES National_Park(name)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (visitor_email) REFERENCES Visitor(email)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE);
 
 CREATE TABLE NP_Contains_Attraction
-             (attraction_name char(30),
-             np_name               char(30),
-             location                 char(30),
-            PRIMARY KEY (attraction_name, np_name),
-            FOREIGN KEY (attraction_name) REFERENCES Attraction(attraction_name)
-                          ON DELETE CASCADE
-                          ON UPDATE CASCADE,
-            FOREIGN KEY (np_name) REFERENCES National_Park(name)
-                          ON DELETE CASCADE
-                          ON UPDATE CASCADE);
-
-
+    (attraction_name char(30),
+    np_name char(30),
+    location char(30),
+    PRIMARY KEY (attraction_name, np_name),
+    FOREIGN KEY (attraction_name) REFERENCES Attraction(attraction_name)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY (np_name) REFERENCES National_Park(name)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE);
 
 CREATE TABLE Wildlife
 	(attraction_name char(30) PRIMARY KEY,
@@ -152,37 +146,31 @@ CREATE TABLE Scenery_Attraction_Name
 	FOREIGN KEY(attraction_name) REFERENCES Attraction(attraction_name)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE,
-FOREIGN KEY(form) REFERENCES Scenery_Form_Manmade(form)
-ON DELETE NO ACTION
-ON UPDATE CASCADE);
-
-
+    FOREIGN KEY(form) REFERENCES Scenery_Form_Manmade(form)
+        ON DELETE NO ACTION
+        ON UPDATE CASCADE);
 
 CREATE TABLE Attraction_Has_Keyword
 	(word char(30),
 	attraction_name char(30),
 	PRIMARY KEY(word, attraction_name),
 	FOREIGN KEY(attraction_name) REFERENCES Attraction(attraction_name)
-ON DELETE CASCADE
-ON UPDATE CASCADE,
-FOREIGN KEY(word) REFERENCES Keyword(word)
-ON DELETE CASCADE
-ON UPDATE CASCADE);
-
-
-
-
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(word) REFERENCES Keyword(word)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE);
 
 CREATE TABLE Activity_Has_Keyword
 	(word char(30),
 	activity_id char(30),
 	PRIMARY KEY(word, activity_id),
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
-ON DELETE CASCADE
-ON UPDATE CASCADE,
-FOREIGN KEY(word) REFERENCES Keyword(word)
-ON DELETE CASCADE
-ON UPDATE CASCADE);
+        ON DELETE CASCADE
+        ON UPDATE CASCADE,
+    FOREIGN KEY(word) REFERENCES Keyword(word)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE);
 
 CREATE TABLE Popularity_Record
 	(activity_id char(30),
@@ -193,6 +181,7 @@ CREATE TABLE Popularity_Record
 	FOREIGN KEY(activity_id) REFERENCES Activity(id)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE);
+
 
 insert into National_Park values ('Banff','224 Banff Avenue Banff AB', 4037641550);
 insert into National_Park values ('Glacier','9520 Trans-Canada Highway,Rogers Pass, BC',2508377500);
@@ -213,11 +202,11 @@ insert into Activity values ('swim1', 33, 'Swimming' , 29.80, 'Banff');
 insert into Activity values ('horse_ride', 3, 'Horse Riding', 39.00, 'Terra Nova');
 insert into Activity values ('rl1', 40, 'Roller coaster', 32.50, 'Rouge National Urban Park');
 
-Insert into Management values ('m1', 'Susan Smith');
-Insert into Management values ('m2', 'Karen Kelsey');
-Insert into Management values ('m3', 'Alex Adams');
-Insert into Management values ('m4', 'Boring Bob');
-Insert into Management values ('m5', 'Susan Sammy');
+Insert into Management values ('m1', 'Susan Smith', 'abcd1234@');
+Insert into Management values ('m2', 'Karen Kelsey', '1a2b3c4d#');
+Insert into Management values ('m3', 'Alex Adams', 'abcd1234@');
+Insert into Management values ('m4', 'Boring Bob', 'abcd1234@');
+Insert into Management values ('m5', 'Susan Sammy', 'abcd1234@');
 
 Insert into Keyword values ('Camping');
 Insert into Keyword values ('Fishing');
@@ -231,12 +220,11 @@ Insert into Keyword values ('Cold');
 Insert into Keyword values ('Swimming');
 Insert into Keyword values ('Horse Riding');
 
-
-insert into Visitor values ('abc@gmail.com' , 'alex', 1234567890);
-insert into Visitor values ('def@gmail.com' , 'don', 0987654321);
-insert into Visitor values ('ghi@gmail.com' , 'wanda',7787787788);
-insert into Visitor values ('hello@gmail.com' , 'helen', 6046046004);
-insert into Visitor values ('bye@gmail.com' , 'brandon', 6046046644);
+insert into Visitor values ('abc@gmail.com' , 'alex', 1234567890, 'abcd1234@');
+insert into Visitor values ('def@gmail.com' , 'don', 0987654321, 'abcd1234@');
+insert into Visitor values ('ghi@gmail.com' , 'wanda',7787787788, 'abcd1234@');
+insert into Visitor values ('hello@gmail.com' , 'helen', 6046046004, 'abcd1234@');
+insert into Visitor values ('bye@gmail.com' , 'brandon', 6046046644, 'abcd1234@');
 
 Insert into Attraction values ('Cougar', 1, 'Annual');
 insert into Attraction values ('Common Butterwort', 0, 'Summer');
@@ -260,7 +248,6 @@ Insert into NP_Has_Keyword values ('Cold', 'Glacier');
 Insert into NP_Has_Keyword values ('Lake', 'Banff');
 Insert into NP_Has_Keyword values ('Hiking', 'Banff');
 Insert into NP_Has_Keyword values ('Hiking', 'Terra Nova');
-
 
 Insert into Books_Activity_Amount values ('zip1', 3, 252.00);
 Insert into Books_Activity_Amount values ('dailyfish1', 5, 49.00);
@@ -286,7 +273,6 @@ Insert into Request_Cancel values ('03','m2','def@gmail.com');
 Insert into Request_Cancel values ('04','m1','ghi@gmail.com');
 Insert into Request_Cancel values ('05','m3','bye@gmail.com');
 
-
 insert into NP_Rating_Stars values ('abc@gmail.com', 'Glacier', 5, 'Great park!');
 insert into NP_Rating_Stars values ('def@gmail.com', 'Terra Nova', 4, '');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Terra Nova', 3, 'A bit cold...');
@@ -302,10 +288,6 @@ insert into NP_Rating_ID values ('r4', 'ghi@gmail.com' ,'Banff');
 insert into NP_Rating_ID values ('r5', 'hello@gmail.com', 'Point Pelee');
 insert into NP_Rating_ID values ('r6', 'hello@gmail.com', 'Rouge National Urban Park');
 insert into NP_Rating_ID values ('r7', 'ghi@gmail.com' ,'Point Pelee');
-
-
-
-
 
 insert into NP_Contains_Attraction values ('Lake Louise', 'Banff', 'West');
 insert into NP_Contains_Attraction values ('Engelmann Spruce', 'Banff', NULL);
@@ -325,15 +307,11 @@ Insert into Scenery_Attraction_Name values ('Balu Pass', 'Trail');
 Insert into Scenery_Attraction_Name values ('Mount Dawson', 'Mountain');
 Insert into Scenery_Attraction_Name values ('Illecillewaet Glacier', 'Glacier');
 
-
-
 Insert into Attraction_Has_Keyword values ('Lake', 'Lake Louise');
 Insert into Attraction_Has_Keyword values ('Big Cat', 'Cougar');
 Insert into Attraction_Has_Keyword values ('Fishing', 'Lake Louise');
 Insert into Attraction_Has_Keyword values ('Tree', 'Subalpine Fir');
 Insert into Attraction_Has_Keyword values ('Tree', 'Engelmann Spruce');
-
-
 
 Insert into Activity_Has_Keyword values ('Fun', 'zip1');
 Insert into Activity_Has_Keyword values ('Camping', 'camp1');
@@ -355,10 +333,3 @@ Insert into Popularity_Record values ('camp2', '2019-05-12', '2019-05-18', 97);
 Insert into Popularity_Record values ('camp2', '2019-05-19', '2019-05-25', 131);
 
 	
-
-
-
-
-
-
-
