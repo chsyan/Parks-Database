@@ -273,13 +273,11 @@ Insert into Request_Cancel values ('03','m2','def@gmail.com');
 Insert into Request_Cancel values ('04','m1','ghi@gmail.com');
 Insert into Request_Cancel values ('05','m3','bye@gmail.com');
 
-insert into NP_Rating_Stars values ('abc@gmail.com', 'Glacier', 5, 'Great park!');
 insert into NP_Rating_Stars values ('def@gmail.com', 'Terra Nova', 4, '');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Terra Nova', 3, 'A bit cold...');
 insert into NP_Rating_Stars values ('ghi@gmail.com', 'Banff', 4.5, '');
 insert into NP_Rating_Stars values ('hello@gmail.com', 'Point Pelee', 4.5, '');
 insert into NP_Rating_Stars values ('hello@gmail.com', 'Rouge National Urban Park', 3.0, 'Less on Fun side!');
-insert into NP_Rating_Stars values ('abc@gmail.com', 'Banff', 5.0, 'Amazing Park in scenic setting!');
 
 insert into NP_Rating_Stars values ('bye@gmail.com', 'Banff', 4, '');
 insert into NP_Rating_Stars values ('bye@gmail.com', 'Glacier', 4, '');
@@ -292,9 +290,7 @@ insert into NP_Rating_Stars values ('abc@gmail.com', 'Rouge National Urban Park'
 insert into NP_Rating_Stars values ('abc@gmail.com', 'Point Pelee', 4, '');
 insert into NP_Rating_Stars values ('abc@gmail.com', 'Terra Nova', 4, '');
 
-insert into NP_Rating_ID values ('r1', 'abc@gmail.com', 'Glacier');
 insert into NP_Rating_ID values ('r2', 'def@gmail.com', 'Terra Nova');
-insert into NP_Rating_ID values ('r3', 'abc@gmail.com', 'Terra Nova');
 insert into NP_Rating_ID values ('r4', 'ghi@gmail.com' ,'Banff');
 insert into NP_Rating_ID values ('r5', 'hello@gmail.com', 'Point Pelee');
 insert into NP_Rating_ID values ('r6', 'hello@gmail.com', 'Rouge National Urban Park');
@@ -305,11 +301,11 @@ insert into NP_Rating_ID values ('r11', 'bye@gmail.com' ,'Glacier');
 insert into NP_Rating_ID values ('r12', 'bye@gmail.com' ,'Rouge National Urban Park');
 insert into NP_Rating_ID values ('r13', 'bye@gmail.com' ,'Point Pelee');
 insert into NP_Rating_ID values ('r14', 'bye@gmail.com' ,'Terra Nova');
-insert into NP_Rating_ID values ('r10', 'abc@gmail.com' ,'Banff');
-insert into NP_Rating_ID values ('r11', 'abc@gmail.com' ,'Glacier');
-insert into NP_Rating_ID values ('r12', 'abc@gmail.com' ,'Rouge National Urban Park');
-insert into NP_Rating_ID values ('r13', 'abc@gmail.com' ,'Point Pelee');
-insert into NP_Rating_ID values ('r14', 'abc@gmail.com' ,'Terra Nova');
+insert into NP_Rating_ID values ('r15', 'abc@gmail.com' ,'Banff');
+insert into NP_Rating_ID values ('r16', 'abc@gmail.com' ,'Glacier');
+insert into NP_Rating_ID values ('r17', 'abc@gmail.com' ,'Rouge National Urban Park');
+insert into NP_Rating_ID values ('r18', 'abc@gmail.com' ,'Point Pelee');
+insert into NP_Rating_ID values ('r19', 'abc@gmail.com' ,'Terra Nova');
 insert into NP_Contains_Attraction values ('Lake Louise', 'Banff', 'West');
 insert into NP_Contains_Attraction values ('Engelmann Spruce', 'Banff', NULL);
 insert into NP_Contains_Attraction values ('Subalpine Fir', 'Banff', NULL);
