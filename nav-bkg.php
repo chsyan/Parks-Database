@@ -1,4 +1,4 @@
-<!-- Referenced and Distributed from https://mdbootstrap.com/docs/standard/navigation/headers/#! -->
+<!-- Referenced and Distributed from https://mdbootstrap.com/docs/standard/navigation/headers/#! and https://css-tricks.com/perfect-full-page-background-image/-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 <nav class="justify-content-center align-items-center navbar navbar-dark bg-dark">
         <span class="navbar-brand mb-0 h1">Welcome to National Parks Canada</span>
@@ -11,11 +11,4 @@
     -o-background-size: cover;
     background-size: cover;"
     
-
     >
-
-    <!-- style="background-image: url('mountain.jpg');
-        height: 100vh;
-        background-repeat: no-repeat;
-        background-attachment: scroll;
-        background-size:100% 100%;" -->
